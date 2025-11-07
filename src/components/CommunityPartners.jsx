@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { VintageCard } from '../Section/Tracks';
 import { Users, Calendar, MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
+import apexLogo from '../assets/Community/apex.png';
 
 const CommunityPartners = () => {
   const scrollContainerRef = useRef(null);
@@ -12,10 +13,10 @@ const CommunityPartners = () => {
       name: 'Apex Circle',
       note: 'Community Host',
       description: 'Bringing together developers and tech enthusiasts since 2018.',
-      icon: Users,
+      logo: apexLogo,
       location: 'Kolkata',
       events: 12,
-      comingSoon: false,
+      comingSoon: true,
     },
     {
       name: 'Local Devs',
@@ -160,7 +161,7 @@ const CommunityPartners = () => {
             }}
           >
             {duplicatedPartners.map((partner, index) => {
-              const Icon = partner.icon;
+              const Icon = Users;
               
               return (
                 <div key={`${partner.name}-${index}`} className="flex-shrink-0 w-full md:w-[450px]">
@@ -168,8 +169,16 @@ const CommunityPartners = () => {
                     {/* Logo Section at Top */}
                     <div className="bg-gradient-to-b from-[#3E2C1D] to-[#5d4b31] -mx-6 -mt-6 mb-6 py-12 px-6 relative overflow-hidden">
                       {/* Logo Circle */}
-                      <div className="mx-auto w-24 h-24 rounded-full bg-[#F4E5C2] border-4 border-[#D4AF37] flex items-center justify-center text-[#3E2C1D] shadow-2xl transform hover:scale-110 transition-transform duration-300">
-                        <Icon size={36} strokeWidth={2.5} />
+                      <div className="mx-auto w-24 h-24 rounded-full bg-[#F4E5C2] border-4 border-[#D4AF37] flex items-center justify-center text-[#3E2C1D] shadow-2xl transform hover:scale-110 transition-transform duration-300 overflow-hidden">
+                        {partner.logo && !partner.comingSoon ? (
+                          <img 
+                            src={partner.logo} 
+                            alt={`${partner.name} logo`}
+                            className="w-full h-full object-contain"
+                          />
+                        ) : (
+                          <Icon size={36} strokeWidth={2.5} />
+                        )}
                       </div>
                     </div>
 
