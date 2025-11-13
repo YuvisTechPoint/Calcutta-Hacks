@@ -54,7 +54,7 @@ const Navbar = () => {
           >
             <div className="w-12 h-12 border-4 border-[#3E2C1D] bg-[#D4AF37] flex items-center justify-center overflow-hidden">
               <img 
-                src="/Untitled design (1).png" 
+                src="/CHlogo.png"
                 alt="Calcutta Hacks Logo" 
                 className="w-full h-full object-contain transition-transform duration-300 hover:scale-[1.2]"
               />

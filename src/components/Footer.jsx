@@ -7,6 +7,8 @@ import {
   ArrowRight,
   Phone,
   Code,
+  Users,
+  Activity,
 } from 'lucide-react';
 import { Link } from 'react-router';
 import { RiGroupFill } from 'react-icons/ri';
@@ -14,7 +16,7 @@ import { GiCableStayedBridge, GiIndianPalace } from 'react-icons/gi';
 import { MdOutlineTram } from 'react-icons/md';
 import { GrBus } from 'react-icons/gr';
 import { FaWhatsapp } from 'react-icons/fa';
-import VisitorCount from './VisitorCount';
+import CountUp from './CountUp';
 import { LINKS, EVENT_INFO } from '../constants/links';
 
 const Footer = () => {
@@ -130,7 +132,34 @@ const Footer = () => {
             </div>
             {/* Visitor Count */}
             <div className="mt-4 pt-4 border-t border-[#D4AF37]/20">
-              <VisitorCount />
+              <div className="bg-[#3E2C1D] border border-[#D4AF37] rounded-lg p-3 sm:p-4">
+                <div className="flex items-center justify-between">
+                  {/* Left Section */}
+                  <div className="flex-1 min-w-0">
+                    <span className="font-serif text-[#A08D7B] text-xs sm:text-sm block mb-2">
+                      Visitors
+                    </span>
+                    <div className="flex items-center gap-2">
+                      <Users className="text-[#D4AF37] flex-shrink-0" size={18} />
+                      <span className="font-display font-bold text-[#D4AF37] text-lg sm:text-xl lg:text-2xl">
+                        <CountUp
+                          from={0}
+                          to={5000}
+                          separator=","
+                          direction="up"
+                          duration={1}
+                          className="count-up-text"
+                        />
+                      </span>
+                    </div>
+                  </div>
+                  {/* Right Section */}
+                  <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
+                    <Activity className="text-[#4ade80] flex-shrink-0" size={14} />
+                    <span className="text-[#F4E5C2]/60 text-xs sm:text-sm font-serif">1</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
